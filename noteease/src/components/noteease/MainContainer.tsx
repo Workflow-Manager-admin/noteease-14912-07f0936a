@@ -4,7 +4,6 @@ import {
   useTask$,
   $,
   useStore,
-  type QRL,
 } from "@builder.io/qwik";
 
 /**
@@ -71,7 +70,6 @@ export default component$(() => {
   const showModal = useSignal(false);
   const modalMode = useSignal<"create" | "edit">("create");
   const modalNote = useStore<Partial<Note>>({});
-  const selectedCategories = useSignal<string[]>([]);
 
   // Filtered list based on search
   const filteredNotes = useSignal<Note[]>([]);
@@ -179,8 +177,10 @@ export default component$(() => {
 
   // ---- UI helpers ----
   // PUBLIC_INTERFACE
-  const snippet = (content: string, max = 80) =>
-    content.length > max ? content.slice(0, max) + "..." : content;
+  const snippet = (content: string, max = 80) => {
+    if (!content) return "";
+    return content.length > max ? content.slice(0, max) + "..." : content;
+  };
 
   // PUBLIC_INTERFACE
   const getCategoryColor = (category: string) => {
