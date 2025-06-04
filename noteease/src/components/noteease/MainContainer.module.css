@@ -1,0 +1,16 @@
+:root {
+  /* Using these CSS Vars as needed for future overrides/scoping */
+  --noteease-primary: #4A90E2;
+  --noteease-accent: #F5A623;
+  --noteease-bg: #FFFFFF;
+}
+
+/* Example: Add style rules for focus states or custom elements here.
+   This module is intentionally minimal and can be expanded for maintainability.
+ */
+
+/* Hide default scrollbar visually but allow scrolling */
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent; /* Chrome/Safari/Webkit */
+}
